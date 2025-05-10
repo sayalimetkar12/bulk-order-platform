@@ -1,0 +1,76 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# Next.js build output
+.next/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Build and distribution files
+dist/
+build/
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Database-related files (if applicable)
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Test and coverage reports
+coverage/
+*.lcov
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Dependency directories (if using Yarn or pnpm)
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Ignore local build artifacts
+/public/build/
+
+# Ignore any local configuration overrides
+/config/local.js
+
+# Ignore Drizzle ORM migration files (if you manage migrations separately)
+drizzle/
+migrations/
+
+# Ignore any sensitive API keys or credentials
+*.key
+*.pem
+*.crt
+*.cert

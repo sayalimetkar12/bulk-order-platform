@@ -1,0 +1,1038 @@
+/* ==========================================================================
+   Reset and Base Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define CSS variables for consistency and easy theming */
+:root {
+  /* Colors - Adjusted for better contrast and accessibility */
+  --primary-green: #2e7d32; /* Darker green for better contrast */
+  --primary-green-dark: #1b5e20;
+  --green-light: #c8e6c9;
+  --green-bg-light: #e7f3e7;
+  --green-bg-table: #f0f9f0;
+  --green-bg-table-hover: #e0f2e0;
+  --green-text: #1b5e20; /* Darker green text for better readability */
+  --blue: #1976d2;
+  --blue-dark: #1565c0;
+  --blue-light: #bee3f8;
+  --blue-text: #2b6cb0;
+  --yellow-light: #fefcbf;
+  --yellow-text: #744210;
+  --red: #c62828;
+  --red-dark: #b71c1c;
+  --red-bg: #fef2f2;
+  --red-border: #f5c6cb;
+  --gray: #6b6b6b;
+  --gray-light: #f7f7f7; /* Slightly lighter for better contrast */
+  --gray-medium: #bdbdbd;
+  --gray-dark: #4a4a4a;
+  --gray-darker: #333333; /* Slightly lighter for better readability */
+  --black: #1a1a1a;
+  --white: #fff;
+  --border: #d1d1d1;
+  --border-green: #d1e7d1;
+
+  /* Shadows - Softer shadows for a modern look */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 6px 12px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --shadow-text: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-text-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+
+  /* Spacing - Consistent spacing scale */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 0.75rem; /* 12px */
+  --spacing-lg: 1rem; /* 16px */
+  --spacing-xl: 1.5rem; /* 24px */
+  --spacing-2xl: 2rem; /* 32px */
+  --spacing-3xl: 3rem; /* 48px */
+
+  /* Border Radius - Consistent rounding */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-full: 9999px;
+
+  /* Font Sizes - Adjusted for better readability */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+}
+
+/* Base styles for the body */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--gray-darker);
+  background: var(--gray-light);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.layout-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Container Styles
+   ========================================================================== */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--green-bg-light) 0%, var(--gray-light) 50%, var(--green-bg-light) 100%);
+}
+
+.container--sm {
+  max-width: 36rem; /* Increased for better form layouts */
+}
+
+.container--md {
+  max-width: 48rem;
+}
+
+.container--lg {
+  max-width: 80rem;
+}
+
+.container--padded {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+/* ==========================================================================
+   Card Styles
+   ========================================================================== */
+.card {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-green);
+  padding: var(--spacing-xl);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Heading Styles
+   ========================================================================== */
+.heading--lg {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--black);
+  text-shadow: var(--shadow-text-sm);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.heading--md {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
+}
+
+.heading--sm {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--black);
+  margin: var(--spacing-lg) 0 var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Feedback Messages (Errors and Success)
+   ========================================================================== */
+.error {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  color: var(--red-dark); /* Darker red for better contrast */
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.error--sm {
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.success {
+  color: var(--green-text);
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: var(--spacing-md);
+  background: var(--green-bg-light);
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   Label Styles
+   ========================================================================== */
+.label,
+.order-details-label,
+.track-order-details-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--gray-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.order-details-label,
+.track-order-details-label {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--black);
+}
+
+/* ==========================================================================
+   Status Badge Styles
+   ========================================================================== */
+.status {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  text-transform: capitalize;
+}
+
+/* Updated status colors for better visibility and contrast */
+.status--pending {
+  background: #fef08a; /* Brighter yellow for Pending */
+  color: #713f12; /* Darker text for contrast */
+}
+
+.status--shipped {
+  background: #93c5fd; /* Brighter blue for Shipped */
+  color: #1e3a8a; /* Darker blue text for contrast */
+}
+
+.status--delivered {
+  background: #86efac; /* Brighter green for Delivered */
+  color: #14532d; /* Darker green text for contrast */
+}
+
+/* ==========================================================================
+   Table Styles
+   ========================================================================== */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-xl);
+}
+
+.table {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-collapse: collapse;
+  text-align: left;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.table-header th {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 2px solid var(--border);
+  background: var(--green-bg-light);
+  color: var(--green-text);
+  font-weight: 600;
+}
+
+.table-row {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
+}
+
+.table-row:hover {
+  background: var(--green-bg-table-hover);
+}
+
+.table-cell {
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--gray-darker);
+}
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input,
+.textarea,
+select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  width: 100%;
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: var(--white);
+  color: var(--gray-darker);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--gray-medium);
+}
+
+.input:focus,
+.textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+.button {
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.button--primary {
+  background: var(--primary-green);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: var(--primary-green-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.button--primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
+}
+
+.button--primary:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.button--secondary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.button--secondary:hover:not(:disabled) {
+  background: var(--blue-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.button--secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.3);
+}
+
+.button--secondary:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ==========================================================================
+   Navigation Styles
+   ========================================================================== */
+.layout-nav {
+  background: var(--primary-green);
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--primary-green-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.layout-nav-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout-nav-brand {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.layout-nav-brand:hover {
+  color: var(--green-light);
+}
+
+.layout-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.layout-nav-link {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--white);
+  color: var(--primary-green);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.layout-nav-link:hover {
+  background: var(--green-light);
+  color: var(--primary-green-dark);
+  transform: translateY(-1px);
+}
+
+.layout-nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
+}
+
+/* ==========================================================================
+   Track Order Page Styles
+   ========================================================================== */
+.track-order-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start; /* Top align */
+  justify-content: center;
+  padding-top: var(--spacing-3xl); /* Optional: add some top padding */
+}
+
+.track-order-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg); /* Reduced gap to move form closer to header */
+}
+
+.track-order-header {
+  text-align: center;
+}
+
+.track-order-header h1 {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--black);
+  text-shadow: var(--shadow-text-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.track-order-header p {
+  font-size: var(--text-base);
+  color: var(--gray-dark);
+  line-height: 1.5;
+}
+
+.track-order-form {
+  max-width: 24rem;
+  margin: 0 auto;
+  margin-top: var(--spacing-md); /* Added smaller margin-top to move form up */
+}
+
+.track-order-input {
+  max-width: 24rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  background: var(--white);
+}
+
+.track-order-input:hover {
+  border-color: var(--primary-green);
+}
+
+.track-order-input:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+}
+
+.track-order-details-card {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.track-order-details-content {
+  color: var(--gray-dark);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.track-order-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.track-order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.track-order-item-even {
+  background: var(--green-bg-table);
+}
+
+.track-order-item-even:hover {
+  background: var(--green-bg-table-hover);
+}
+
+.track-order-item-odd {
+  background: var(--gray-light);
+}
+
+.track-order-item-odd:hover {
+  background: #e8e8e8;
+}
+
+.track-order-item-name {
+  font-weight: 500;
+  color: var(--black);
+}
+
+.track-order-item-quantity {
+  font-size: var(--text-sm);
+  color: var(--gray);
+}
+
+/* ==========================================================================
+   Order Details Page Styles
+   ========================================================================== */
+.order-details-card p {
+  color: var(--gray-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.order-details-items-list {
+  list-style: disc;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.order-details-item {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.order-details-item-even {
+  background: var(--green-bg-table);
+}
+
+.order-details-item-even:hover {
+  background: var(--green-bg-table-hover);
+}
+
+.order-details-item-odd {
+  background: var(--gray-light);
+}
+
+.order-details-item-odd:hover {
+  background: #e8e8e8;
+}
+
+/* ==========================================================================
+   Admin Dashboard Page Styles
+   ========================================================================== */
+.admin-dashboard-table-header {
+  background: var(--green-bg-table);
+  color: var(--green-text);
+}
+
+.admin-dashboard-table-cell {
+  color: var(--gray-darker);
+  font-weight: 500;
+}
+
+.admin-dashboard-items-container {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-dashboard-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: center;
+  width: 12rem;
+}
+
+.admin-dashboard-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-dashboard-item-name {
+  font-weight: 500;
+}
+
+.admin-dashboard-status-select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  color: var(--gray-darker);
+  font-size: var(--text-sm);
+  transition: all 0.3s ease;
+}
+
+.admin-dashboard-status-select:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+.admin-dashboard-status-select:disabled {
+  background: var(--gray-light);
+  cursor: not-allowed;
+}
+
+.admin-dashboard-no-orders {
+  background: var(--gray-light);
+  color: var(--gray-dark);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Admin Order Table Styles
+   ========================================================================== */
+.admin-order-table-error {
+  margin-bottom: var(--spacing-lg);
+}
+
+.admin-order-table-status-select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  transition: all 0.3s ease;
+}
+
+.admin-order-table-status-select:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+.admin-order-table-status-select:disabled {
+  background: var(--gray-light);
+  cursor: not-allowed;
+}
+
+.admin-order-table-no-data {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+  color: var(--gray-dark);
+}
+
+/* ==========================================================================
+   Inventory Table Styles
+   ========================================================================== */
+.inventory-table-no-data {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+  color: var(--gray-dark);
+}
+
+/* ==========================================================================
+   Product Card Styles
+   ========================================================================== */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border-green);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.product-card-heading {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: var(--spacing-md);
+}
+
+.product-card-price,
+.product-card-stock {
+  color: var(--gray-dark);
+  margin-top: var(--spacing-sm);
+  font-size: var(--text-sm);
+}
+
+.product-card-quantity-control {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.product-card-quantity-button {
+  width: 2rem;
+  height: 2rem;
+  background: var(--primary-green);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.product-card-quantity-button:hover:not(:disabled) {
+  background: var(--primary-green-dark);
+  transform: scale(1.05);
+}
+
+.product-card-quantity-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
+}
+
+.product-card-quantity-button:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+}
+
+.product-card-quantity-display {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--gray-darker);
+  min-width: 2rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Product Catalog Styles
+   ========================================================================== */
+.product-catalog-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+
+}
+
+.product-catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.product-catalog-no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--gray-dark);
+  padding: var(--spacing-lg);
+}
+
+.product-catalog-total {
+  text-align: center;
+}
+
+.product-catalog-total-text {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--black);
+}
+
+.product-catalog-order-summary {
+  background: var(--white);
+  border: 1px solid var(--border-green);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.product-catalog-order-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.product-catalog-order-summary-item {
+  color: var(--gray-dark);
+}
+
+.product-catalog-order-summary-total {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--black);
+  margin-top: var(--spacing-lg);
+}
+
+.product-catalog-order-success {
+  margin-top: var(--spacing-lg);
+  color: var(--green-text);
+  text-align: center;
+}
+
+
+
+.product-catalog-delivery-form {
+  background: var(--white);
+  border: 1px solid var(--border-green);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 36rem; /* matches .container--sm used for forms */
+  margin: auto;
+}
+
+
+.product-catalog-delivery-form:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.product-catalog-delivery-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.product-catalog-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.product-catalog-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-xl);
+}
+
+/* ==========================================================================
+   Inventory Management Page Styles
+   ========================================================================== */
+.inventory-management-cancel-button {
+  margin-left: var(--spacing-lg);
+  color: var(--gray-dark);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.inventory-management-cancel-button:hover {
+  color: var(--gray-darker);
+  text-decoration: underline;
+}
+
+.inventory-management-cancel-button:focus {
+  outline: none;
+  color: var(--gray-darker);
+  text-decoration: underline;
+}
+
+.inventory-management-table-header {
+  background: var(--gray-light);
+}
+
+/* Updated: Add background colors to Edit button */
+.inventory-management-edit-button {
+  color: var(--white);
+  background: var(--blue); /* Blue background for Edit */
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  margin-right: var(--spacing-lg);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.inventory-management-edit-button:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.inventory-management-edit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.3);
+}
+
+/* Updated: Add background colors to Delete button */
+.inventory-management-delete-button {
+  color: var(--white);
+  background: var(--red); /* Red background for Delete */
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.inventory-management-delete-button:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+.inventory-management-delete-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 40, 40, 0.3);
+}
+
+.inventory-management-no-products {
+  color: var(--gray-dark);
+  font-size: var(--text-sm);
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 640px) {
+  .container--padded,
+  .layout-main,
+  .home-main {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .heading--lg,
+  .home-heading,
+  .product-catalog-heading,
+  .admin-dashboard-heading,
+  .admin-inventory-heading,
+  .inventory-management-heading {
+    font-size: var(--text-3xl);
+  }
+
+  .card,
+  .product-catalog-delivery-form,
+  .product-catalog-order-summary {
+    padding: var(--spacing-lg);
+  }
+
+  .product-catalog-delivery-form {
+    max-width: 20rem; /* Smaller width on small screens */
+  }
+
+  .table-cell {
+    padding: var(--spacing-sm);
+    font-size: var(--text-sm);
+  }
+
+  .layout-nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .layout-nav-links {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .admin-dashboard-items-list {
+    width: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+  .layout-nav-links {
+    margin-top: 0;
+  }
+
+  .product-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-catalog-delivery-form {
+    max-width: 24rem; /* Adjusted to match approximate product card width on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container--padded,
+  .layout-main,
+  .home-main,
+  .admin-dashboard-container,
+  .admin-inventory-container,
+  .inventory-management-container {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+  }
+
+  .product-catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-catalog-delivery-form {
+    max-width: 32rem; /* Slightly wider on large screens to match typical card width */
+  }
+}
